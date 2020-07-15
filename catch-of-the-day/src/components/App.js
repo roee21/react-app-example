@@ -12,8 +12,8 @@ class App extends React.Component {
   addFish = (fish) => {
     // console.log(fish);
     // 1. take a copy of existence state
-    const fishes = {...this.state.fishes}
-}
+    const fishes = { ...this.state.fishes };
+
     // 2. add our new fosh to that fish variable
     fishes[`fish${Date.now()}`] = fish;
 
