@@ -26,7 +26,7 @@ class EditFishForm extends React.Component {
           value={this.props.fish.price}
         />
         <select
-          name="name"
+          name="status"
           onChange={this.handleChange}
           value={this.props.fish.status}
         >
