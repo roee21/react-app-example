@@ -11,6 +11,7 @@ class App extends React.Component {
   state = {
     fishes: {},
     order: {},
+    editing: false,
   };
 
   componentDidMount() {
@@ -90,34 +91,45 @@ class App extends React.Component {
     this.setState({ order });
   };
 
+  editState = () => {
+    this.setState({ editing: !this.state.editing });
+  };
+
   render() {
     return (
       <div className="catch-of-the-day">
         <div className="menu">
           <Header tagline="good good not bad" />
-          <ul className="fishes">
-            {Object.keys(this.state.fishes).map((key) => (
-              <Fish
-                key={key}
-                index={key}
-                details={this.state.fishes[key]}
-                addToOrder={this.addToOrder}
-              />
-            ))}
-          </ul>
+          <button className="editBtn" onClick={this.editState}>
+            {this.state.editing ? "done" : "edit"}
+          </button>
+          {this.state.editing ? (
+            <Inventory
+              addFish={this.addFish}
+              loadSampleFishes={this.loadSampleFishes}
+              fish={this.state.fishes}
+              updateFish={this.updateFish}
+              deleteFish={this.deleteFish}
+              storeid={this.props.match.params.storeid}
+            />
+          ) : (
+            <ul className="fishes">
+              {Object.keys(this.state.fishes).map((key) => (
+                <Fish
+                  className="fish-item"
+                  key={key}
+                  index={key}
+                  details={this.state.fishes[key]}
+                  addToOrder={this.addToOrder}
+                />
+              ))}
+            </ul>
+          )}
         </div>
         <Order
           fishes={this.state.fishes}
           order={this.state.order}
           removeFromOrder={this.removeFromOrder}
-        />
-        <Inventory
-          addFish={this.addFish}
-          loadSampleFishes={this.loadSampleFishes}
-          fish={this.state.fishes}
-          updateFish={this.updateFish}
-          deleteFish={this.deleteFish}
-          storeid={this.props.match.params.storeid}
         />
       </div>
     );
