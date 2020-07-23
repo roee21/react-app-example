@@ -6,6 +6,7 @@ import sampleFishes from "../sample-fishes";
 import Fish from "./Fish";
 import { object } from "prop-types";
 import base from "../base";
+import _ from "lodash";
 
 class App extends React.Component {
   state = {
@@ -99,19 +100,21 @@ class App extends React.Component {
     return (
       <div className="catch-of-the-day">
         <div className="categories">
-          <h2 className="cat-title">Categories</h2>
-          <h1>Men</h1>
-          <h1>Women</h1>
-          <h1>New&nbsp;Arrivals</h1>
-          <h1>Sale</h1>
-          <h1>Accessories</h1>
+          <h2 className="cat-title large-text">Categories</h2>
+          <h1 className="big-text">Men</h1>
+          <h1 className="big-text">Women</h1>
+          <h1 className="big-text">New&nbsp;Arrivals</h1>
+          <h1 className="big-text">Sale</h1>
+          <h1 className="big-text">Accessories</h1>
         </div>
 
         <div className="menu">
-          <Header tagline="good good not bad" />
-          <button className="editBtn" onClick={this.editState}>
-            {this.state.editing ? "done" : "edit"}
-          </button>
+          <Header
+            tagline="good good not bad"
+            editState={this.editState}
+            editing={this.state.editing}
+          />
+
           {this.state.editing ? (
             <Inventory
               addFish={this.addFish}

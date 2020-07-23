@@ -17,15 +17,21 @@ class Fish extends React.Component {
       <li className="menu-fish">
         {/* <img src={image} alt={name} /> */}
 
-        <figure className="edit_image" style={imgStyle({ image })}></figure>
+        <figure className="edit_image" style={imgStyle(image)}></figure>
 
-        <h3 className="fish-name">
+        <h3 className="fish-name med-text">
           {name}
           <span className="price"> {formatPrice(price)} </span>
         </h3>
         <p>{desc}</p>
-        <button disabled={!isAvailable} onClick={this.handleClick}>
-          {isAvailable ? "Add to Cart" : "Sold Out"}
+        <button
+          // className="add-to-cart"
+          disabled={!isAvailable}
+          onClick={this.handleClick}
+        >
+          <p>
+            <strong>{isAvailable ? "(add to cart)" : "(sold out)"}</strong>
+          </p>
         </button>
       </li>
     );

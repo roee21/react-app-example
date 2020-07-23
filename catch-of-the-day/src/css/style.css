@@ -269,17 +269,16 @@ body {
   font-family: 'GT Cinetype Trial Rg', sans-serif;
   font-size: 2rem;
 }
-h1 {
-  font-family: 'GT Cinetype Trial Rg', sans-serif;
-  text-align: center;
-  font-weight: normal;
-  margin: 0;
-}
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p,
+h1,
+button,
+button.editBtn,
+input {
   font-weight: normal;
   font-family: 'GT Cinetype Trial Rg', sans-serif;
 }
@@ -291,6 +290,24 @@ h2 {
 h3 {
   font-size: 3rem;
 }
+.large-text,
+header.top .search::-webkit-input-placeholder {
+  font-size: 30px;
+}
+.large-text,
+header.top .search:-ms-input-placeholder {
+  font-size: 30px;
+}
+.large-text,
+header.top .search::placeholder {
+  font-size: 30px;
+}
+.med-text {
+  font-size: 50px;
+}
+.small-text {
+  font-size: 14px;
+}
 body {
   display: -webkit-box;
   display: flex;
@@ -300,7 +317,42 @@ body {
           justify-content: center;
 }
 header.top {
-  text-align: center;
+  height: 70px;
+  position: -webkit-sticky;
+  position: sticky;
+  display: -webkit-box;
+  display: flex;
+  top: 0;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  z-index: 999;
+  background-color: #fff;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+header.top .search {
+  position: relative;
+  padding-left: 20px;
+  height: 100%;
+  width: 70%;
+  z-index: 999;
+  outline: none;
+  border: none;
+  align-content: left;
+}
+header.top .search::-webkit-input-placeholder {
+  color: #000;
+}
+header.top .search:-ms-input-placeholder {
+  color: #000;
+}
+header.top .search::placeholder {
+  color: #000;
+}
+header.top .search:focus {
+  border-color: #fff;
 }
 header.top h1 {
   font-size: 14.4rem;
@@ -361,14 +413,25 @@ header.top h3:after {
 .catch-of-the-day {
   display: -webkit-box;
   display: flex;
-  height: 90vh;
-  max-width: 1500px;
+  height: 100vh;
+  width: 100vw;
   margin: 0 auto;
-  margin: 5vh;
   -webkit-perspective: 1000px;
           perspective: 1000px;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
+}
+.catch-of-the-day .menu {
+  position: relative;
+  padding: 0;
+}
+.catch-of-the-day .menu button,
+.catch-of-the-day .menu.editBtn {
+  padding-right: 20px;
+  right: 0;
+  top: auto;
+  bottom: auto;
+  border: none;
 }
 .catch-of-the-day .menu .inventory .fishes .menu-fish figure {
   background-repeat: no-repeat;
@@ -379,15 +442,35 @@ header.top h3:after {
 .catch-of-the-day .menu .inventory .fishes .menu-fish input {
   backround-color: transparent;
   border: none;
+  width: 100%;
 }
 .catch-of-the-day .menu .inventory .fishes .menu-fish input.item-title {
-  font-family: 'Cinetype', sans-serif;
   font-weight: normal;
   font-size: 3rem;
 }
+.catch-of-the-day .menu .inventory .fishes .menu-fish .form-details .name-and-price input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish display flex .name-and-price input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish flex-direction column .name-and-price input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish justify-content space-between .name-and-price input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish .form-details width 100% input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish display flex width 100% input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish flex-direction column width 100% input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish justify-content space-between width 100% input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish .form-details display flex input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish display flex display flex input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish flex-direction column display flex input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish justify-content space-between display flex input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish .form-details flex-direction row input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish display flex flex-direction row input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish flex-direction column flex-direction row input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish justify-content space-between flex-direction row input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish .form-details justify-content space-between input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish display flex justify-content space-between input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish flex-direction column justify-content space-between input.item-name,
+.catch-of-the-day .menu .inventory .fishes .menu-fish justify-content space-between justify-content space-between input.item-name {
+  background-color: #d12028;
+}
 .catch-of-the-day > * {
-  -webkit-box-flex: 1;
-          flex: 1 4 auto;
   padding: 2rem;
   border: 1px solid #1a1a1a;
   position: relative;
@@ -398,44 +481,38 @@ header.top h3:after {
   overflow: scroll;
 }
 .catch-of-the-day > *:first-child {
-  flex-shrink: 1;
-  flex-basis: 20%;
-  -webkit-transform: translateX(50%) rotateY(6deg) translateX(-50%);
-          transform: translateX(50%) rotateY(6deg) translateX(-50%);
+  width: 20%;
+}
+.catch-of-the-day > *:first-child:hover {
+  width: 40%;
 }
 .catch-of-the-day > *:nth-child(2) {
-  -webkit-transform: translateX(-50%) rotateY(-14deg) translateX(50%);
-          transform: translateX(-50%) rotateY(-14deg) translateX(50%);
   border-left: 0;
   border-right: 0;
-  min-width: 300px;
+  width: 60%;
 }
 .catch-of-the-day > *:last-child {
-  flex-shrink: 1;
-  flex-basis: 20%;
-  min-width: 400px;
-  -webkit-transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px);
-          transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px);
+  width: 20%;
 }
 .catch-of-the-day .categories {
+  padding-top: 100px;
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  -webkit-box-pack: center;
-          justify-content: center;
 }
 .catch-of-the-day .categories .cat-title {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   padding-top: 20px;
   padding-left: 20px;
-  font-size: 40px;
 }
 .catch-of-the-day .categories h1 {
-  font-size: 110px;
+  padding: 0;
+  font-size: 5vw;
+  line-height: 0;
 }
 input#fold:not(:checked) ~ #main .catch-of-the-day > * {
   -webkit-transform: none;
@@ -468,9 +545,6 @@ input#fold:checked + label {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
           flex-direction: row;
-}
-.fishes .menu-fish .item-title {
-  font-size: 50px;
 }
 ul {
   list-style: none;
@@ -582,8 +656,8 @@ ul.order li span.count span {
 .fish-edit input,
 .fish-edit textarea,
 .fish-edit select {
-  width: 33.33%;
-  padding: 10px;
+  width: 100%;
+  padding: 100px;
   line-height: 1;
   font-size: 1.2rem;
   border: 0;
@@ -626,33 +700,45 @@ ul.order li span.count span {
 }
 .menu-fish p {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 14px;
+  line-height: 20px;
 }
 .menu-fish .fish-name {
-  margin: 0;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
           justify-content: space-between;
   -webkit-box-align: center;
           align-items: center;
+  font-weight: 600;
 }
 .menu-fish .price {
-  font-size: 1.4rem;
+  font-size: 18px;
   -webkit-box-pack: end;
           justify-content: flex-end;
 }
 .menu-fish .edit_image {
   width: 100%;
-  height: 500px;
+  height: 700px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   margin-right: 1rem;
 }
+.menu-fish button {
+  padding: 0;
+  margin-top: 10px;
+  background: none;
+  font-weight: 600;
+  border: none;
+  font-size: 14px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  position: relative;
+  z-index: 2;
+}
 button,
 input[type=submit] {
-  text-transform: uppercase;
   background: none;
   border: 1px solid #000;
   font-weight: 600;
@@ -665,11 +751,9 @@ input[type=submit] {
 }
 button[disabled],
 input[type=submit][disabled] {
-  color: #d12028;
+  color: #888;
   background: #fff;
   border-color: #d12028;
-  -webkit-transform: rotate(-10deg) scale(2) translateX(50%) translateY(-50%);
-          transform: rotate(-10deg) scale(2) translateX(50%) translateY(-50%);
 }
 button[disabled]:hover,
 input[type=submit][disabled]:hover {
@@ -751,6 +835,10 @@ input[type=submit].twitter {
 button.twitter:after,
 input[type=submit].twitter:after {
   background: #2c8dd0;
+}
+button.add-to-cart,
+input[type=submit].add-to-cart {
+  margin-top: 50px;
 }
 .store-selector {
   background: #fff;
