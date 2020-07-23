@@ -1,7 +1,10 @@
 // Import all partials
 @require './_*.styl'
 
-
+body
+  display flex
+  align-items center
+  justify-content center
 header.top
   text-align center
   h1
@@ -51,18 +54,42 @@ header.top
       bottom 7px
 
 
+
+
+// .categories
+//   width 200px
+
 .catch-of-the-day
   display flex
   height 90vh
   max-width:1500px
   margin 0 auto
-  margin-top 5vh
+  margin 5vh
   perspective: 1000px;
   transform-style preserve-3d
+
+  .menu
+    .inventory
+      .fishes
+        .menu-fish
+          figure
+            background-repeat no-repeat
+            background-size cover
+            background-position center
+            padding-top 65.5%
+          input
+            backround-color transparent
+            border none
+            &.item-title
+              font-family 'Cinetype', sans-serif
+              font-weight normal
+              font-size 3rem
+            
+
   & > *
     flex 1 4 auto
     padding 2rem
-    border 1rem double lighten(black,10%)
+    border 1px solid lighten(black,10%)
     position relative
     background white
     transition all 0.3s
@@ -70,7 +97,7 @@ header.top
     overflow scroll
     &:first-child
       flex-shrink 1 // take 4x the extra room
-      flex-basis 50%
+      flex-basis 20%
       transform translateX(50%) rotateY(6deg) translateX(-50%)
     &:nth-child(2)
       transform translateX(-50%) rotateY(-14deg) translateX(50%)
@@ -79,8 +106,28 @@ header.top
       min-width 300px
     &:last-child
       flex-shrink 1 // take 4x the extra room
-      flex-basis 50%
+      flex-basis 20%
+      min-width 400px
       transform translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px)
+   .categories
+      display flex
+      flex-direction column
+      justify-content center
+
+      .cat-title
+        position absolute
+        top 0
+        left 0
+        padding-top 20px
+        padding-left 20px
+        font-size 40px
+      
+      h1
+        font-size 110px
+
+
+
+
 
 // Folding Transforms
 // Take off folding when not checked
@@ -111,33 +158,74 @@ input#fold
   flex-wrap wrap
   flex-direction row
 
+  .menu-fish
+    .item-title
+      font-size 50px
+
 
 ul
   list-style none
   margin 0
   padding 0
 
+.order-wrap
+  h2
+    text-align left 
 ul.order
   // Default state
+  position relative
+  width 100%
+
   li
-    border-bottom 1px solid black
+    width 100%
+    // border-bottom 1px solid black
     padding 2rem 0
     display flex
     font-size 1.4rem
-    justify-content space-between
+    justify-content flex-start
     align-items center
-    &:hover
-      // padding 1rem 0
-      button
-        display inline
-    button
-      border 0
-      display none
-      line-height 1
+    position relative
+    .cart-item-img
+      width 100px
+      height 100px
+    .cart-item-details
+      width 100%
+      display flex
+      flex-direction column
+      align-items flex-start  
+      justify-content center
+      margin-left 25px
+
+    h2
       padding 0
+      margin 0
+      fint-size 18px
+      line-height 30px
+    h3
+      padding 0
+      margin 0
+      font-size 14px
+      line-height 20px
+
+      
+    button.close_btn
+      position absolute 
+      top 0
+      right 0
+      border 0
+      //display none
+      line-height 1
+      padding-top 20px
+      display block
+      &:hover
+        color black
+      &:after 
+        display none
+
     &.unavailable
       text-decoration line-through
       background lighten(red, 80%)
+
     .price
       font-size 1.2rem
     span.count
@@ -148,10 +236,12 @@ ul.order
         display inline-block
         // transition all 0.5s
 .total
+  display flex
+  justify-content center
   padding 2rem 0
   font-size 1.4rem
-  border-bottom 3px solid black
-  border-top 3px double black
+  border-bottom 1px solid #BCBCBC
+  border-top 1px solid #BCBCBC
   & strong
     float: right
 
@@ -170,8 +260,8 @@ ul.order
     line-height 1
     font-size 1.2rem
     border 0
-    border-bottom 1px solid black
-    border-right 1px solid black
+    // border-bottom 1px solid black
+    // border-right 1px solid black
     appearance none
     border-radius 0
     background white
@@ -200,7 +290,6 @@ ul.order
   // border-top 1px solid black
   width 50%
   padding 2rem
-
   margin-bottom 5px
   clear both
   overflow hidden
@@ -217,11 +306,16 @@ ul.order
     // color orange
     justify-content flex-end
     // font-family 'Open Sans Condensed'
-  img
+  .edit_image
       // padding 10px 
       // float left
       width 100%
+      height 500px
+      background-repeat no-repeat
+      background-size cover
+      background-position center
       margin-right 1rem
+
 
 button, input[type=submit]
   text-transform uppercase
@@ -289,6 +383,7 @@ button, input[type=submit]
     background #5EA9DD
     &:after
       background darken(#5EA9DD, 20%)
+
 
 
 // Store Selector

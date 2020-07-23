@@ -51,18 +51,53 @@
           transform: translateY(-100%) scale(3);
 }
 @font-face {
-  font-family: "haymakerregular";
-  src: url("./fonts/haymaker-webfont.eot");
-  src: url("./fonts/haymaker-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/haymaker-webfont.woff") format("woff"), url("./fonts/haymaker-webfont.ttf") format("truetype"), url("./fonts/haymaker-webfont.svg#haymakerregular") format("svg");
+  font-family: 'GT Cinetype Trial Rg It';
+  src: url("/fonts/GTCinetypeTrial-RgIt.woff2") format('woff2'), url("/fonts/GTCinetypeTrial-RgIt.woff") format('woff');
   font-weight: normal;
-  font-style: normal;
+  font-style: italic;
+  font-display: swap;
 }
 @font-face {
-  font-family: 'blanchcaps_inline';
-  src: url("./fonts/blanch_caps_inline-webfont.eot");
-  src: url("./fonts/blanch_caps_inline-webfont.eot?#iefix") format('embedded-opentype'), url("./fonts/blanch_caps_inline-webfont.woff") format('woff'), url("./fonts/blanch_caps_inline-webfont.ttf") format('truetype'), url("./fonts/blanch_caps_inline-webfont.svg#blanchcaps_inline") format('svg');
+  font-family: 'GT Cinetype Trial Lt It';
+  src: url("/fonts/GTCinetypeTrial-LtIt.woff2") format('woff2'), url("/fonts/GTCinetypeTrial-LtIt.woff") format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Cinetype Trial Bd';
+  src: url("/fonts/GTCinetypeTrial-Bd.woff2") format('woff2'), url("/fonts/GTCinetypeTrial-Bd.woff") format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Cinetype Trial Mono';
+  src: url("/fonts/GTCinetypeTrial-Mono.woff2") format('woff2'), url("/fonts/GTCinetypeTrial-Mono.woff") format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Cinetype Trial Lt';
+  src: url("/fonts/GTCinetypeTrial-Lt.woff2") format('woff2'), url("/fonts/GTCinetypeTrial-Lt.woff") format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Cinetype Trial Rg';
+  src: url("/fonts/GTCinetypeTrial-Rg.woff2") format('woff2'), url("/fonts/GTCinetypeTrial-Rg.woff") format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Cinetype Trial Bd It';
+  src: url("/fonts/GTCinetypeTrial-BdIt.woff2") format('woff2'), url("/fonts/GTCinetypeTrial-BdIt.woff") format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
 }
 article,
 aside,
@@ -231,11 +266,11 @@ body {
   background: #d4d4d4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'GT Cinetype Trial Rg', sans-serif;
   font-size: 2rem;
 }
 h1 {
-  font-family: 'blanchcaps_inline', sans-serif;
+  font-family: 'GT Cinetype Trial Rg', sans-serif;
   text-align: center;
   font-weight: normal;
   margin: 0;
@@ -246,7 +281,7 @@ h4,
 h5,
 h6 {
   font-weight: normal;
-  font-family: 'haymakerregular', sans-serif;
+  font-family: 'GT Cinetype Trial Rg', sans-serif;
 }
 h2 {
   text-align: center;
@@ -255,6 +290,14 @@ h2 {
 }
 h3 {
   font-size: 3rem;
+}
+body {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
 }
 header.top {
   text-align: center;
@@ -321,17 +364,32 @@ header.top h3:after {
   height: 90vh;
   max-width: 1500px;
   margin: 0 auto;
-  margin-top: 5vh;
+  margin: 5vh;
   -webkit-perspective: 1000px;
           perspective: 1000px;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
 }
+.catch-of-the-day .menu .inventory .fishes .menu-fish figure {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 65.5%;
+}
+.catch-of-the-day .menu .inventory .fishes .menu-fish input {
+  backround-color: transparent;
+  border: none;
+}
+.catch-of-the-day .menu .inventory .fishes .menu-fish input.item-title {
+  font-family: 'Cinetype', sans-serif;
+  font-weight: normal;
+  font-size: 3rem;
+}
 .catch-of-the-day > * {
   -webkit-box-flex: 1;
           flex: 1 4 auto;
   padding: 2rem;
-  border: 1rem double #1a1a1a;
+  border: 1px solid #1a1a1a;
   position: relative;
   background: #fff;
   -webkit-transition: all 0.3s;
@@ -341,7 +399,7 @@ header.top h3:after {
 }
 .catch-of-the-day > *:first-child {
   flex-shrink: 1;
-  flex-basis: 50%;
+  flex-basis: 20%;
   -webkit-transform: translateX(50%) rotateY(6deg) translateX(-50%);
           transform: translateX(50%) rotateY(6deg) translateX(-50%);
 }
@@ -354,9 +412,30 @@ header.top h3:after {
 }
 .catch-of-the-day > *:last-child {
   flex-shrink: 1;
-  flex-basis: 50%;
+  flex-basis: 20%;
+  min-width: 400px;
   -webkit-transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px);
           transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px);
+}
+.catch-of-the-day .categories {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+.catch-of-the-day .categories .cat-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: 40px;
+}
+.catch-of-the-day .categories h1 {
+  font-size: 110px;
 }
 input#fold:not(:checked) ~ #main .catch-of-the-day > * {
   -webkit-transform: none;
@@ -390,30 +469,76 @@ input#fold:checked + label {
   -webkit-box-direction: normal;
           flex-direction: row;
 }
+.fishes .menu-fish .item-title {
+  font-size: 50px;
+}
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+.order-wrap h2 {
+  text-align: left;
+}
+ul.order {
+  position: relative;
+  width: 100%;
+}
 ul.order li {
-  border-bottom: 1px solid #000;
+  width: 100%;
   padding: 2rem 0;
   display: -webkit-box;
   display: flex;
   font-size: 1.4rem;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
           align-items: center;
+  position: relative;
 }
-ul.order li:hover button {
-  display: inline;
+ul.order li .cart-item-img {
+  width: 100px;
+  height: 100px;
 }
-ul.order li button {
-  border: 0;
-  display: none;
-  line-height: 1;
+ul.order li .cart-item-details {
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+          justify-content: center;
+  margin-left: 25px;
+}
+ul.order li h2 {
   padding: 0;
+  margin: 0;
+  fint-size: 18px;
+  line-height: 30px;
+}
+ul.order li h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+ul.order li button.close_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  line-height: 1;
+  padding-top: 20px;
+  display: block;
+}
+ul.order li button.close_btn:hover {
+  color: #000;
+}
+ul.order li button.close_btn:after {
+  display: none;
 }
 ul.order li.unavailable {
   text-decoration: line-through;
@@ -431,10 +556,14 @@ ul.order li span.count span {
   display: inline-block;
 }
 .total {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
   padding: 2rem 0;
   font-size: 1.4rem;
-  border-bottom: 3px solid #000;
-  border-top: 3px double #000;
+  border-bottom: 1px solid #bcbcbc;
+  border-top: 1px solid #bcbcbc;
 }
 .total strong {
   float: right;
@@ -458,8 +587,6 @@ ul.order li span.count span {
   line-height: 1;
   font-size: 1.2rem;
   border: 0;
-  border-bottom: 1px solid #000;
-  border-right: 1px solid #000;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -515,8 +642,12 @@ ul.order li span.count span {
   -webkit-box-pack: end;
           justify-content: flex-end;
 }
-.menu-fish img {
+.menu-fish .edit_image {
   width: 100%;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   margin-right: 1rem;
 }
 button,

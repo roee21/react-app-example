@@ -98,6 +98,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="catch-of-the-day">
+        <div className="categories">
+          <h2 className="cat-title">Categories</h2>
+          <h1>Men</h1>
+          <h1>Women</h1>
+          <h1>New&nbsp;Arrivals</h1>
+          <h1>Sale</h1>
+          <h1>Accessories</h1>
+        </div>
+
         <div className="menu">
           <Header tagline="good good not bad" />
           <button className="editBtn" onClick={this.editState}>
@@ -116,7 +125,6 @@ class App extends React.Component {
             <ul className="fishes">
               {Object.keys(this.state.fishes).map((key) => (
                 <Fish
-                  className="fish-item"
                   key={key}
                   index={key}
                   details={this.state.fishes[key]}

@@ -67,15 +67,17 @@ class Inventory extends React.Component {
       <div className="inventory">
         <h2>Inventory</h2>
         {logout}
-        {Object.keys(this.props.fish).map((key) => (
-          <EditFishForm
-            key={key}
-            index={key}
-            fish={this.props.fish[key]}
-            updateFish={this.props.updateFish}
-            deleteFish={this.props.deleteFish}
-          />
-        ))}
+        <ul className="fishes">
+          {Object.keys(this.props.fish).map((key) => (
+            <EditFishForm
+              key={key}
+              index={key}
+              fish={this.props.fish[key]}
+              updateFish={this.props.updateFish}
+              deleteFish={this.props.deleteFish}
+            />
+          ))}
+        </ul>
 
         <AddFishForm addFish={this.props.addFish} />
         <button onClick={this.props.loadSampleFishes}> Load Samples </button>

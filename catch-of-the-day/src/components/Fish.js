@@ -11,9 +11,14 @@ class Fish extends React.Component {
     const isAvailable = status === "available";
     console.log(isAvailable);
 
+    const imgStyle = (imgSrc) => ({ backgroundImage: `url(${imgSrc})` });
+
     return (
       <li className="menu-fish">
-        <img src={image} alt={name} />
+        {/* <img src={image} alt={name} /> */}
+
+        <figure className="edit_image" style={imgStyle({ image })}></figure>
+
         <h3 className="fish-name">
           {name}
           <span className="price"> {formatPrice(price)} </span>
