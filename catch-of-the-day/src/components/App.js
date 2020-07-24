@@ -6,7 +6,7 @@ import sampleFishes from "../sample-fishes";
 import Fish from "./Fish";
 import { object } from "prop-types";
 import base from "../base";
-import _ from "lodash";
+import _, { bindAll } from "lodash";
 
 class App extends React.Component {
   state = {
@@ -100,7 +100,7 @@ class App extends React.Component {
     return (
       <div className="catch-of-the-day">
         <div className="categories">
-          <h2 className="cat-title large-text">Categories</h2>
+          <img className="logo" src="/images/logo.svg" />
           <h1 className="big-text">Men</h1>
           <h1 className="big-text">Women</h1>
           <h1 className="big-text">New&nbsp;Arrivals</h1>
@@ -125,7 +125,7 @@ class App extends React.Component {
               storeid={this.props.match.params.storeid}
             />
           ) : (
-            <ul className="fishes">
+            <ul className="fishes products">
               {Object.keys(this.state.fishes).map((key) => (
                 <Fish
                   key={key}

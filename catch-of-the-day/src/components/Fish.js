@@ -17,9 +17,9 @@ class Fish extends React.Component {
       <li className="menu-fish">
         {/* <img src={image} alt={name} /> */}
 
-        <figure className="edit_image" style={imgStyle(image)}></figure>
+        <figure style={imgStyle(image)}></figure>
 
-        <h3 className="fish-name med-text">
+        <h3 className="fish-name">
           {name}
           <span className="price"> {formatPrice(price)} </span>
         </h3>

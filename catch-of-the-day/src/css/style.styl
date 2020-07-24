@@ -6,6 +6,9 @@ body
   align-items center
   justify-content center
   // overflow hidden
+
+
+
 header.top
   height 70px
   //position fixed
@@ -91,12 +94,6 @@ header.top
       top auto
       bottom 7px
 
-
-
-
-// .categories
-//   width 200px
-
 .catch-of-the-day
   display flex
   height 100vh
@@ -106,59 +103,7 @@ header.top
   // margin 5vh
   perspective: 1000px;
   transform-style preserve-3d
-
-  .menu
-    position relative
-    padding 0
-    button
-    &.editBtn
-      // position absolute
-      padding-right 20px
-      right 0
-      top auto
-      bottom auto
-      border none
-
-    .inventory
-      .fishes
-        .menu-fish
-          figure
-            background-repeat no-repeat
-            background-size cover
-            background-position center
-            padding-top 65.5%
-          input
-            backround-color transparent
-            border none
-            width 100%
-            &.item-title
-              // font-family 'Cinetype', sans-serif
-              font-weight normal
-              font-size 3rem
-          
-          .form-details
-          // width 100%
-          display flex
-          flex-direction column
-          justify-content space-between
-
-            input
-              .item-name
-              color red
-            
-            .name-and-price
-            width 100%
-            display flex
-            flex-direction row
-            justify-content space-between
-             
-
-          
-
-            
-
   & > *
-    // flex 1 4 auto
     padding 2rem
     border 1px solid lighten(black,10%)
     position relative
@@ -200,15 +145,27 @@ header.top
         font-size 5vw
         line-height 0
 
+  .categories
+    .logo
+       width 100px
 
+  .menu
+    position relative
+    padding 0
+    button
+    &.editBtn
+      // position absolute
+      padding-right 20px
+      right 0
+      top auto
+      bottom auto
+      border none
 
-
-
-// Folding Transforms
-// Take off folding when not checked
-input#fold:not(:checked) ~ #main
-  .catch-of-the-day > *
-      transform none
+    .inventory
+      .fish-edit
+        input
+          &.fe-name
+            padding 0
 
 label[for="fold"]
   position absolute
@@ -227,12 +184,63 @@ input#fold
   &:checked + label
     background white
     color black
+
+
 .fishes
   display flex
   position relative
   flex-wrap wrap
   flex-direction row
 
+.fishes.products
+  li
+    figure
+      width 100%
+      height 35vw
+      background-repeat no-repeat
+      background-size cover
+      background-position center
+      margin-right 1rem
+    
+    .fish-name
+      font-size 18px
+
+.fishes.editing
+  li
+    position relative
+
+    input,textarea,select
+      outline none    
+      border none
+
+    figure
+      width 100%
+      height 35vw
+      background-repeat no-repeat
+      background-size cover
+      background-position center
+      margin-right 1rem
+
+      input
+        border none
+        width 100%
+        &.item-title
+          font-weight normal
+          font-size 3rem
+      
+    .form-details
+      display flex
+      position relative
+      width 100%
+      flex-direction row
+      justify-content space-between
+      
+      .item-name
+        font-size 18px
+        font-weight 600
+
+      .price
+        font-size 14px
 
 ul
   list-style none
@@ -297,8 +305,8 @@ ul.order
       text-decoration line-through
       background lighten(red, 80%)
 
-    .price
-      font-size 1.2rem
+
+
     span.count
       position relative
       overflow hidden
@@ -318,35 +326,6 @@ ul.order
 
 .order-title
   text-align center
-
-.fish-edit
-  margin-bottom 20px
-  border 2px solid black
-  overflow hidden
-  display flex
-  flex-wrap wrap
-  input, textarea, select
-    width 100%
-    padding 10px
-    line-height 1
-    font-size 1.2rem
-    border 0
-    // border-bottom 1px solid black
-    // border-right 1px solid black
-    appearance none
-    border-radius 0
-    background white
-    &:focus
-      outline 0
-      background lighten(orange, 85%)
-  textarea
-    width 100%
-  input:last-of-type
-    width 100%
-  button
-    width 100%
-    border 0
-
 
 // Menu Styles
 .list-of-fish
@@ -380,15 +359,6 @@ ul.order
     // color orange
     justify-content flex-end
     // font-family 'Open Sans Condensed'
-  .edit_image
-      // padding 10px 
-      // float left
-      width 100%
-      height 700px
-      background-repeat no-repeat
-      background-size cover
-      background-position center
-      margin-right 1rem
   
   button
     // &.add-to-cart
@@ -490,3 +460,4 @@ button, input[type=submit]
     &[type="text"]
       text-align center
       font-size 3rem
+
