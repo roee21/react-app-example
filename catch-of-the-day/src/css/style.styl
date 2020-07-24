@@ -161,11 +161,6 @@ header.top
       bottom auto
       border none
 
-    .inventory
-      .fish-edit
-        input
-          &.fe-name
-            padding 0
 
 label[for="fold"]
   position absolute
@@ -179,13 +174,6 @@ label[for="fold"]
   cursor pointer
   padding 0.5rem 1rem
 
-input#fold
-  display none
-  &:checked + label
-    background white
-    color black
-
-
 .fishes
   display flex
   position relative
@@ -194,6 +182,7 @@ input#fold
 
 .fishes.products
   li
+    position relative
     figure
       width 100%
       height 35vw
@@ -202,16 +191,69 @@ input#fold
       background-position center
       margin-right 1rem
     
-    .fish-name
+    .first-row
+      display flex
+      position relative
+      justify-content space-between
+      align-items center
+      padding 0
+      margin 0
+      height 50px
+
+    h3
+      width 100%
       font-size 18px
+      font-weight 600
+      padding 0
+      margin 0
+    
+    h2
+      display inline-block
+      font-size 14px
+      padding 0
+      margin 0
 
 .fishes.editing
   li
     position relative
 
-    input,textarea,select
+    button
+      font-family 'GT Cinetype Trial Rg', sans-serif
+      padding 0
+      margin 0
+      font-weight 600
+                  
+      &.remove-item
+        margin-left 10px
+
+    input,select
       outline none    
       border none
+      &.price
+        font-size 14px
+        display inline
+        width 100%
+        text-align right
+
+      &.opt
+        font-size 14px
+
+      &.item-desc
+        font-size 14px
+    
+    textarea
+      width 100%
+      outline none    
+      border none
+      font-size 14px
+      line-height 20px
+      margin-bottom 10px
+      resize none
+
+    
+
+
+
 
     figure
       width 100%
@@ -220,27 +262,35 @@ input#fold
       background-size cover
       background-position center
       margin-right 1rem
+      display flex
+      // justify-content center
+      position relative
 
       input
-        border none
-        width 100%
-        &.item-title
-          font-weight normal
-          font-size 3rem
-      
-    .form-details
+        background-color #ffffff
+        height 30px
+        position absolute
+        bottom 15px
+        margin-left 15px
+        font-size 14px
+        padding-left 10px
+        opacity 0.8
+        
+
+    .first-row
       display flex
       position relative
-      width 100%
-      flex-direction row
       justify-content space-between
+      align-items center
+      padding 0
+      margin 0
+      height 50px
       
       .item-name
         font-size 18px
         font-weight 600
 
-      .price
-        font-size 14px
+      
 
 ul
   list-style none
@@ -311,8 +361,7 @@ ul.order
       position relative
       overflow hidden
       float left // only works if it's floated?!
-      span
-        display inline-block
+
         // transition all 0.5s
 .total
   display flex
@@ -346,19 +395,6 @@ ul.order
     margin 0
     font-size 14px
     line-height 20px
-
-  .fish-name
-    // margin-down 3px
-    display flex
-    justify-content space-between
-    align-items center
-    font-weight 600
-    
-  .price
-    font-size 18px
-    // color orange
-    justify-content flex-end
-    // font-family 'Open Sans Condensed'
   
   button
     // &.add-to-cart
@@ -377,7 +413,7 @@ ul.order
 
 
 
-button, input[type=submit]
+button, 
   // text-transform uppercase
   background none
   border 1px solid black
@@ -460,4 +496,8 @@ button, input[type=submit]
     &[type="text"]
       text-align center
       font-size 3rem
+
+.title
+  text-align center
+  font-weight 600
 

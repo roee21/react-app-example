@@ -65,7 +65,7 @@ class Inventory extends React.Component {
 
     return (
       <div className="inventory">
-        <h2>Inventory</h2>
+        <p className="title">(you are now in editing mode)</p>
         {logout}
         <ul className="fishes editing">
           {Object.keys(this.props.fish).map((key) => (

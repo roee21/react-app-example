@@ -16,6 +16,7 @@ class EditFishForm extends React.Component {
     return (
       <li className="menu-fish">
         <figure className="edit_image" style={imgStyle(this.props.fish.image)}>
+
           <input
             type="text"
             onChange={this.handleChange}
@@ -23,8 +24,7 @@ class EditFishForm extends React.Component {
             value={this.props.fish.image}
           />
         </figure>
-        <div className="form-details">
-          {/* <div className="name-and-price"> */}
+        <div className="first-row">
           <input
             type="text"
             name="name"
@@ -32,37 +32,48 @@ class EditFishForm extends React.Component {
             value={this.props.fish.name}
             className="item-name"
           />
-          <span className="price">
             <input
               type="text"
               name="price"
               onChange={this.handleChange}
               value={this.props.fish.price}
               className="price"
-            />{" "}
-          </span>
+            />
         </div>
-        <select
-          name="status"
-          onChange={this.handleChange}
-          value={this.props.fish.status}
-        >
-          <option value="available">Fresh!</option>
-          <option value="unavailable">Sold Out!</option>
-        </select>
-        {/* </div> */}
-        {/* <p> */}
+
         <textarea
+          className="item-desc"
           name="desc"
           onChange={this.handleChange}
           value={this.props.fish.desc}
         ></textarea>
-        {/* </p> */}
-        {/* end template */}
 
-        <button onClick={() => this.props.deleteFish(this.props.index)}>
-          Remove
+        
+
+        <div className="low-row">
+
+                <select
+          className="opt"
+          name="status"
+          onChange={this.handleChange}
+          value={this.props.fish.status}
+        >
+          <option value="available">Available</option>
+          <option value="unavailable">Sold Out!</option>
+        </select>
+
+        <button className="remove-item" onClick={() => this.props.deleteFish(this.props.index)}>
+          <p><strong>
+          (delete product)
+          </strong>
+          </p>
+
         </button>
+
+
+
+        </div>
+
       </li>
     );
   }

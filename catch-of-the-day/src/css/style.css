@@ -277,7 +277,7 @@ h6,
 p,
 h1,
 button,
-button.editBtn,
+.editBtn,
 input {
   font-weight: normal;
   font-family: 'GT Cinetype Trial Rg', sans-serif;
@@ -306,6 +306,9 @@ header.top .search::placeholder {
   font-size: 18px;
 }
 .small-text {
+  font-size: 14px;
+}
+p {
   font-size: 14px;
 }
 body {
@@ -480,9 +483,6 @@ header.top h3:after {
   bottom: auto;
   border: none;
 }
-.catch-of-the-day .menu .inventory .fish-edit input.fe-name {
-  padding: 0;
-}
 label[for="fold"] {
   position: absolute;
   top: 1rem;
@@ -495,13 +495,6 @@ label[for="fold"] {
   cursor: pointer;
   padding: 0.5rem 1rem;
 }
-input#fold {
-  display: none;
-}
-input#fold:checked + label {
-  background: #fff;
-  color: #000;
-}
 .fishes {
   display: -webkit-box;
   display: flex;
@@ -511,6 +504,9 @@ input#fold:checked + label {
   -webkit-box-direction: normal;
           flex-direction: row;
 }
+.fishes.products li {
+  position: relative;
+}
 .fishes.products li figure {
   width: 100%;
   height: 35vw;
@@ -519,17 +515,71 @@ input#fold:checked + label {
   background-position: center;
   margin-right: 1rem;
 }
-.fishes.products li .fish-name {
+.fishes.products li .first-row {
+  display: -webkit-box;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+  padding: 0;
+  margin: 0;
+  height: 50px;
+}
+.fishes.products li h3 {
+  width: 100%;
   font-size: 18px;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+}
+.fishes.products li h2 {
+  display: inline-block;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
 }
 .fishes.editing li {
   position: relative;
 }
+.fishes.editing li button {
+  font-family: 'GT Cinetype Trial Rg', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
+}
+.fishes.editing li button.remove-item {
+  margin-left: 10px;
+}
 .fishes.editing li input,
-.fishes.editing li textarea,
 .fishes.editing li select {
   outline: none;
   border: none;
+}
+.fishes.editing li input.price,
+.fishes.editing li select.price {
+  font-size: 14px;
+  display: inline;
+  width: 100%;
+  text-align: right;
+}
+.fishes.editing li input.opt,
+.fishes.editing li select.opt {
+  font-size: 14px;
+}
+.fishes.editing li input.item-desc,
+.fishes.editing li select.item-desc {
+  font-size: 14px;
+}
+.fishes.editing li textarea {
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  resize: none;
 }
 .fishes.editing li figure {
   width: 100%;
@@ -538,32 +588,35 @@ input#fold:checked + label {
   background-size: cover;
   background-position: center;
   margin-right: 1rem;
-}
-.fishes.editing li figure input {
-  border: none;
-  width: 100%;
-}
-.fishes.editing li figure input.item-title {
-  font-weight: normal;
-  font-size: 3rem;
-}
-.fishes.editing li .form-details {
   display: -webkit-box;
   display: flex;
   position: relative;
-  width: 100%;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
+}
+.fishes.editing li figure input {
+  background-color: #fff;
+  height: 30px;
+  position: absolute;
+  bottom: 15px;
+  margin-left: 15px;
+  font-size: 14px;
+  padding-left: 10px;
+  opacity: 0.8;
+}
+.fishes.editing li .first-row {
+  display: -webkit-box;
+  display: flex;
+  position: relative;
   -webkit-box-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+  padding: 0;
+  margin: 0;
+  height: 50px;
 }
-.fishes.editing li .form-details .item-name {
+.fishes.editing li .first-row .item-name {
   font-size: 18px;
   font-weight: 600;
-}
-.fishes.editing li .form-details .price {
-  font-size: 14px;
 }
 ul {
   list-style: none;
@@ -640,10 +693,6 @@ ul.order li.unavailable {
 ul.order li span.count {
   position: relative;
   overflow: hidden;
-  float: left;
-}
-ul.order li span.count span {
-  display: inline-block;
 }
 .total {
   display: -webkit-box;
@@ -681,20 +730,6 @@ ul.order li span.count span {
   font-size: 14px;
   line-height: 20px;
 }
-.menu-fish .fish-name {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-          align-items: center;
-  font-weight: 600;
-}
-.menu-fish .price {
-  font-size: 18px;
-  -webkit-box-pack: end;
-          justify-content: flex-end;
-}
 .menu-fish button {
   padding: 0;
   margin-top: 10px;
@@ -707,8 +742,7 @@ ul.order li span.count span {
   position: relative;
   z-index: 2;
 }
-button,
-input[type=submit] {
+button {
   background: none;
   border: 1px solid #000;
   font-weight: 600;
@@ -719,23 +753,19 @@ input[type=submit] {
   position: relative;
   z-index: 2;
 }
-button[disabled],
-input[type=submit][disabled] {
+button[disabled] {
   color: #888;
   background: #fff;
   border-color: #d12028;
 }
-button[disabled]:hover,
-input[type=submit][disabled]:hover {
+button[disabled]:hover {
   color: #d12028;
   cursor: not-allowed;
 }
-button[disabled]:after,
-input[type=submit][disabled]:after {
+button[disabled]:after {
   display: none;
 }
-button:after,
-input[type=submit]:after {
+button:after {
   content: '';
   z-index: -1;
   display: block;
@@ -749,32 +779,23 @@ input[type=submit]:after {
   transition: all 0.2s;
 }
 button:hover,
-input[type=submit]:hover,
-button:focus,
-input[type=submit]:focus {
+button:focus {
   color: #fff;
   outline: 0;
 }
 button:hover:after,
-input[type=submit]:hover:after,
-button:focus:after,
-input[type=submit]:focus:after {
+button:focus:after {
   height: 100%;
 }
-button.warning:after,
-input[type=submit].warning:after {
+button.warning:after {
   background: #d12028;
 }
-button.success:after,
-input[type=submit].success:after {
+button.success:after {
   background: #2dc22d;
 }
 button.github,
-input[type=submit].github,
 button.facebook,
-input[type=submit].facebook,
-button.twitter,
-input[type=submit].twitter {
+button.twitter {
   border: 0;
   display: block;
   margin-bottom: 2rem;
@@ -782,32 +803,25 @@ input[type=submit].twitter {
   color: #fff;
   padding: 2rem;
 }
-button.github,
-input[type=submit].github {
+button.github {
   background: #000;
 }
-button.github:after,
-input[type=submit].github:after {
+button.github:after {
   background: #5cc437;
 }
-button.facebook,
-input[type=submit].facebook {
+button.facebook {
   background: #3864a3;
 }
-button.facebook:after,
-input[type=submit].facebook:after {
+button.facebook:after {
   background: #2d5082;
 }
-button.twitter,
-input[type=submit].twitter {
+button.twitter {
   background: #5ea9dd;
 }
-button.twitter:after,
-input[type=submit].twitter:after {
+button.twitter:after {
   background: #2c8dd0;
 }
-button.add-to-cart,
-input[type=submit].add-to-cart {
+button.add-to-cart {
   margin-top: 50px;
 }
 .store-selector {
@@ -825,4 +839,8 @@ input[type=submit].add-to-cart {
 .store-selector button[type="text"] {
   text-align: center;
   font-size: 3rem;
+}
+.title {
+  text-align: center;
+  font-weight: 600;
 }

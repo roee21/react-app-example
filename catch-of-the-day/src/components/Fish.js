@@ -19,13 +19,14 @@ class Fish extends React.Component {
 
         <figure style={imgStyle(image)}></figure>
 
-        <h3 className="fish-name">
-          {name}
-          <span className="price"> {formatPrice(price)} </span>
-        </h3>
+        <div className="first-row">
+          <h3>
+            {name}
+          </h3>
+          <h2> {formatPrice(price)} </h2>
+        </div>
         <p>{desc}</p>
         <button
-          // className="add-to-cart"
           disabled={!isAvailable}
           onClick={this.handleClick}
         >
