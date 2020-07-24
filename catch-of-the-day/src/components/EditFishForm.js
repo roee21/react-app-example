@@ -39,6 +39,15 @@ class EditFishForm extends React.Component {
               value={this.props.fish.price}
               className="price"
             />
+            <select
+          className="opt"
+          name="status"
+          onChange={this.handleChange}
+          value={this.props.fish.status}
+        >
+          <option value="available">Available</option>
+          <option value="unavailable">Sold Out!</option>
+        </select>
         </div>
 
         <textarea
@@ -48,20 +57,7 @@ class EditFishForm extends React.Component {
           value={this.props.fish.desc}
         ></textarea>
 
-        
-
         <div className="low-row">
-
-                <select
-          className="opt"
-          name="status"
-          onChange={this.handleChange}
-          value={this.props.fish.status}
-        >
-          <option value="available">Available</option>
-          <option value="unavailable">Sold Out!</option>
-        </select>
-
         <button className="remove-item" onClick={() => this.props.deleteFish(this.props.index)}>
           <p><strong>
           (delete product)

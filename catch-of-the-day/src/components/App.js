@@ -100,12 +100,16 @@ class App extends React.Component {
     return (
       <div className="catch-of-the-day">
         <div className="categories">
+        <div className="logo-wrapper">
           <img className="logo" src="/images/logo.svg" />
+          </div>
+          <div className="list">
           <h1 className="big-text">Men</h1>
           <h1 className="big-text">Women</h1>
           <h1 className="big-text">New&nbsp;Arrivals</h1>
           <h1 className="big-text">Sale</h1>
           <h1 className="big-text">Accessories</h1>
+          </div>
         </div>
 
         <div className="menu">

@@ -28,6 +28,11 @@ class AddFishForm extends React.Component {
   render() {
     return (
       <form className="fish-edit" onSubmit={this.createFish}>
+      <div className="form-wrapper">
+      <div className="new-title">
+      <h1>ADD NEW PRODUCT</h1>
+      </div>
+      <div className="form-wrapper">
         <input
           className="fe-name"
           name="name"
@@ -42,21 +47,27 @@ class AddFishForm extends React.Component {
           placeholder="price"
           ref={this.priceRef}
         />
-        <select name="status" ref={this.statusRef}>
-          <option value="available">Fresh!</option>
-          <option value="notavailable">Sold Out!</option>
-        </select>
 
-        <textarea name="desc" placeholder="Description" ref={this.descRef} />
-
-        <input
+                <input
           name="image"
           type="text"
           placeholder="image"
           ref={this.imageRef}
         />
 
-        <button type="submit">Add Fish</button>
+        <select name="status" ref={this.statusRef}>
+          <option value="available">Available</option>
+          <option value="notavailable">Sold Out!</option>
+        </select>
+
+        <textarea name="desc" placeholder="Description" ref={this.descRef} />
+
+
+        <div className="btn-wrapper">
+        <button type="submit">(add new product)</button>
+        </div>
+        </div>
+        </div>
       </form>
     );
   }

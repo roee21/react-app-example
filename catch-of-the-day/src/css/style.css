@@ -365,24 +365,6 @@ header.top h1 {
   -webkit-box-pack: center;
           justify-content: center;
 }
-header.top h1 .ofThe {
-  display: -webkit-box;
-  display: flex;
-  font-size: 3rem;
-  color: #f5a623;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
-  background: url("images/anchor.svg") center no-repeat;
-  background-size: cover;
-  padding: 0 1rem;
-}
-header.top h1 .ofThe .of {
-  padding-right: 2rem;
-  position: relative;
-  right: -0.5rem;
-}
 header.top h3 {
   margin: 0;
   font-size: 2rem;
@@ -438,7 +420,7 @@ header.top h3:after {
   width: 20%;
 }
 .catch-of-the-day > *:first-child:hover {
-  width: 40%;
+  width: 50%;
 }
 .catch-of-the-day > *:nth-child(2) {
   border-left: 0;
@@ -449,7 +431,6 @@ header.top h3:after {
   width: 20%;
 }
 .catch-of-the-day .categories {
-  padding-top: 100px;
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -468,8 +449,35 @@ header.top h3:after {
   font-size: 5vw;
   line-height: 0;
 }
+.catch-of-the-day .categories .list {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.catch-of-the-day .categories .list h1 {
+  font-size: 100px;
+  padding: 0px;
+  margin: 0px;
+  line-height: 100px;
+}
+.catch-of-the-day .categories .logo-wrapper {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+}
 .catch-of-the-day .categories .logo {
-  width: 100px;
+  width: 200px;
 }
 .catch-of-the-day .menu {
   position: relative;
@@ -482,6 +490,101 @@ header.top h3:after {
   top: auto;
   bottom: auto;
   border: none;
+  outline: none;
+}
+.catch-of-the-day .menu .inventory .fish-edit {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: solid 1px #000;
+  padding-top: 20px;
+  margin-top: 20px;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+.catch-of-the-day .menu .inventory .fish-edit .form-wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 20px;
+  max-width: 850px;
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 50px;
+}
+.catch-of-the-day .menu .inventory .fish-edit .form-wrapper .new-title {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+.catch-of-the-day .menu .inventory .fish-edit .form-wrapper .btn-wrapper {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+.catch-of-the-day .menu .inventory .fish-edit .form-wrapper .btn-wrapper button {
+  font-family: 'GT Cinetype Trial Rg', sans-serif;
+}
+.catch-of-the-day .menu .inventory .fish-edit .form-wrapper input {
+  outline: none;
+  padding: 15px 15px 15px 0px;
+  margin: 10px;
+  font-size: 14px;
+  border-width: 0 0 1px;
+  border-color: #000;
+  outline: none;
+}
+.catch-of-the-day .menu .inventory .fish-edit .form-wrapper input::-webkit-input-placeholder {
+  color: #000;
+}
+.catch-of-the-day .menu .inventory .fish-edit .form-wrapper input:-ms-input-placeholder {
+  color: #000;
+}
+.catch-of-the-day .menu .inventory .fish-edit .form-wrapper input::placeholder {
+  color: #000;
+}
+.catch-of-the-day .menu .inventory .fish-edit .form-wrapper select {
+  font-size: 14px;
+  outline: none;
+  border-width: 1px;
+  border-color: #000;
+  margin: 10px;
+  padding: 5px;
+}
+.catch-of-the-day .menu .inventory .fish-edit .form-wrapper textarea {
+  font-size: 14px;
+  outline: none;
+  border-width: 1px;
+  border-color: #000;
+  margin: 10px;
+  padding: 5px;
+  width: 100%;
+}
+.catch-of-the-day .menu .inventory .load-wrapper {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+.catch-of-the-day .menu .inventory .load-wrapper .add-samples {
+  font-family: 'GT Cinetype Trial Rg', sans-serif;
+  color: #999;
+  margin-right: auto;
+  margin-left: auto;
 }
 label[for="fold"] {
   position: absolute;
@@ -549,28 +652,28 @@ label[for="fold"] {
   margin: 0;
   font-weight: 600;
 }
-.fishes.editing li button.remove-item {
-  margin-left: 10px;
-}
-.fishes.editing li input,
-.fishes.editing li select {
+.fishes.editing li input {
   outline: none;
   border: none;
 }
-.fishes.editing li input.price,
-.fishes.editing li select.price {
+.fishes.editing li input.price {
   font-size: 14px;
   display: inline;
   width: 100%;
   text-align: right;
 }
-.fishes.editing li input.opt,
-.fishes.editing li select.opt {
+.fishes.editing li input.opt {
   font-size: 14px;
 }
-.fishes.editing li input.item-desc,
-.fishes.editing li select.item-desc {
+.fishes.editing li input.item-desc {
   font-size: 14px;
+}
+.fishes.editing li select {
+  outline: none;
+  border-width: 1px;
+  font-size: 14px;
+  padding: 5px;
+  margin-left: 15px;
 }
 .fishes.editing li textarea {
   width: 100%;
@@ -780,12 +883,7 @@ button:after {
 }
 button:hover,
 button:focus {
-  color: #fff;
-  outline: 0;
-}
-button:hover:after,
-button:focus:after {
-  height: 100%;
+  outline: none;
 }
 button.warning:after {
   background: #d12028;

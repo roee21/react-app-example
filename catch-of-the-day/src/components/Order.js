@@ -15,8 +15,14 @@ class Order extends React.Component {
       );
     }
     return (
+
+
       <li key={key}>
+
         <img src={fish.image} alt={fish.name} className="cart-item-img" />
+        
+
+        
         <div className="cart-item-details">
           <h2>
             <strong>{fish.name}</strong>

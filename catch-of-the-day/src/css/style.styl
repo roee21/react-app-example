@@ -1,6 +1,26 @@
 // Import all partials
 @require './_*.styl'
 
+// ::-webkit-scrollbar {
+//   width: 5px;
+// }
+
+// /* Track */
+// ::-webkit-scrollbar-track {
+//   background: #ffffff; 
+// }
+ 
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//   background: #111111; 
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: #DC9087; 
+// }
+
+
 body
   display flex
   align-items center
@@ -54,20 +74,6 @@ header.top
     display flex
     justify-content: center;
 
-    // This is a bunch of goofy CSS to make the logo look decent
-    .ofThe
-      display flex
-      font-size 3rem
-      color orange
-      justify-content: center;
-      align-items: center;
-      background url('images/anchor.svg') center no-repeat;
-      background-size cover
-      padding 0 1rem
-      .of
-        padding-right 2rem
-        position relative
-        right -0.5rem
   h3
     margin 0
     font-size 2rem
@@ -114,7 +120,7 @@ header.top
     &:first-child
       width 20%
       &:hover
-        width 40%
+        width 50%
 
     &:nth-child(2)
       border-left 0
@@ -126,7 +132,6 @@ header.top
       // min-width 400px
 
    .categories
-      padding-top 100px
       display flex
       flex-direction column
       // justify-content center
@@ -146,20 +151,119 @@ header.top
         line-height 0
 
   .categories
+    .list
+      display flex
+      flex-direction column
+      justify-content center
+      margin-top auto
+      margin-bottom auto
+
+      h1
+        font-size 100px
+        padding 0px
+        margin 0px
+        line-height 100px
+    .logo-wrapper
+      display flex
+      width 100%
+      flex-direction column
+      align-items center
+
+
     .logo
-       width 100px
+      width 200px
+      // height 50px
 
   .menu
     position relative
     padding 0
+    
     button
     &.editBtn
-      // position absolute
       padding-right 20px
       right 0
       top auto
       bottom auto
       border none
+      outline none
+
+    .inventory
+      .fish-edit
+        display flex
+        flex-wrap wrap
+        border-top solid 1px #000000
+        padding-top 20px
+        margin-top 20px
+        justify-content center
+        
+        .form-wrapper
+          position relative
+          display flex
+          flex-wrap wrap
+          width 100%
+          padding 20px
+          max-width 850px
+          margin-right auto
+          margin-left auto
+          justify-content space-between
+          margin-bottom 50px
+          
+          .new-title
+            display flex
+            width 100%
+            justify-content center
+
+          .btn-wrapper
+            display flex
+            width 100%
+            margin-top 20px
+            align-items center
+            flex-direction column
+
+            button
+              font-family 'GT Cinetype Trial Rg', sans-serif
+
+              
+              // button
+              //   text-align center
+          input
+            // width 25%
+            outline none    
+            padding 15px 15px 15px 0px 
+            margin 10px
+            font-size 14px
+            border-width: 0 0 1px;
+            border-color: black          
+            outline none
+            &::placeholder
+                color #000000
+          
+          select
+            font-size 14px
+            // width 25%
+            outline none
+            border-width 1px
+            border-color black
+            margin 10px
+            padding 5px
+          
+          textarea
+            font-size 14px
+            outline none
+            border-width 1px
+            border-color black
+            margin 10px
+            padding 5px
+            width 100%
+      .load-wrapper
+        display flex
+        width 100%
+        flex-direction column
+        .add-samples
+          font-family 'GT Cinetype Trial Rg', sans-serif
+          color #999999
+          margin-right auto
+          margin-left auto
 
 
 label[for="fold"]
@@ -223,10 +327,8 @@ label[for="fold"]
       margin 0
       font-weight 600
                   
-      &.remove-item
-        margin-left 10px
 
-    input,select
+    input
       outline none    
       border none
       &.price
@@ -240,7 +342,13 @@ label[for="fold"]
 
       &.item-desc
         font-size 14px
-    
+    select
+      outline none    
+      border-width 1px
+      font-size 14px
+      padding 5px
+      margin-left 15px
+
     textarea
       width 100%
       outline none    
@@ -249,11 +357,6 @@ label[for="fold"]
       line-height 20px
       margin-bottom 10px
       resize none
-
-    
-
-
-
 
     figure
       width 100%
@@ -445,10 +548,7 @@ button,
     top 0
     transition all 0.2s
   &:hover, &:focus
-    color white
-    outline 0
-    &:after
-      height 100%
+    outline none
   // variants
   &.warning
     &:after

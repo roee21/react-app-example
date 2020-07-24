@@ -56,7 +56,6 @@ class Inventory extends React.Component {
     if (this.state.uid !== this.state.owner) {
       return (
         <div>
-          {" "}
           <p>You are not the store owner</p>
           {logout}
         </div>
@@ -78,9 +77,11 @@ class Inventory extends React.Component {
             />
           ))}
         </ul>
+        <div className="load-wrapper">
+        <button className="add-samples" onClick={this.props.loadSampleFishes}> (load sample products) </button>
+        </div>
 
         <AddFishForm addFish={this.props.addFish} />
-        <button onClick={this.props.loadSampleFishes}> Load Samples </button>
       </div>
     );
   }
